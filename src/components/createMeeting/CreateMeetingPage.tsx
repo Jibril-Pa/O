@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import CreateMeetingForm from "@/components/createMeeting/CreateMeetingForm";
 import { db } from "@/db";
+import { DialogTitle }  from "@/components/ui/dialog";
 
 export default async function CreateMeetingPage() {
 	const session = await auth.api.getSession({ headers: await headers() });
@@ -23,6 +24,7 @@ export default async function CreateMeetingPage() {
 
 	return (
 		<div className="container mx-auto py-0">
+			<DialogTitle className="flex justify-center items-center text-2xl font-bold">Create Meeting</DialogTitle>
 			<CreateMeetingForm users={users}/>
 		</div>
 	);
